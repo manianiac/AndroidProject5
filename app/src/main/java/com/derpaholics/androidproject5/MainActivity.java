@@ -27,12 +27,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myPreference = PreferenceManager.getDefaultSharedPreferences(this);
-
-        boolean checked = myPreference.getBoolean("EnableBroadcast", true);
-        if(checked){
-            Toast.makeText(MainActivity.this, "Checked!", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
 
@@ -54,6 +48,8 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             Intent myIntent = new Intent(this, SettingsActivity.class);
             startActivity(myIntent);
+
+
             return true;
         }
 

@@ -11,20 +11,21 @@
             />
         <Preference
             android:title="Total custom broadcasts received"
-            android:enabled="false"
+            android:dependency="EnableBroadcast"
             android:key="broadcastCounter"
             />
 
         <CheckBoxPreference
             android:title="Enable Notifications"
             android:summary="Send a notification to user when custom broadcast is recieved"
-            android:enabled="false"
+            android:dependency="EnableBroadcast"
             android:key="EnableNotifications"
             />
         <EditTextPreference
             android:dialogTitle="Default Notification"
             android:key="defaultText"
             android:title="Default Notification"
-            android:enabled="false"/>
+            android:dependency="EnableNotifications"
+            />
     </PreferenceCategory>
 </PreferenceScreen>
