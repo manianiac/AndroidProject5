@@ -29,7 +29,8 @@
         android:text="Send Broadcast"
         android:id="@+id/SendBroadcastButton"
         android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="sendBroadcast" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -1,13 +1,23 @@
 package com.derpaholics.androidproject5;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
+
+
+    private static final int MYNOTIFICATION = 1;
+    private int currentNotification = MYNOTIFICATION;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,5 +48,28 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void doNotification(View v) {
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        Notification noti = new Notification.Builder(this)
+                .setContentTitle(getString(R.string.app_name))
+                .setContentText("Just a Notice")
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setOngoing(false)
+                .build();
+
+        noti.flags |= Notification.FLAG_INSISTENT;
+
+        notificationManager.notify(MYNOTIFICATION, noti);
+    }
+
+    public void sendBroadcast(View v)
+    {
+        Intent myIntent = new Intent("com.derpaholics.androidproject5.NOTIFICATION");
+       // myIntent.putExtra("NumberPresses", )
+        sendBroadcast(myIntent);
     }
 }

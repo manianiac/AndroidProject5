@@ -27,6 +27,9 @@
             android:name=".MyReceiver"
             android:enabled="true"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="com.derpaholics.androidproject5.NOTIFICATION"/>
+            </intent-filter>
         </receiver>
 
         <activity
