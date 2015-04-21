@@ -69,7 +69,6 @@ public class MainActivity extends ActionBarActivity {
     public void sendBroadcast(View v)
     {
         Intent myIntent = new Intent("com.derpaholics.androidproject5.NOTIFICATION");
-        myIntent.putExtra("NumberPresses", 9);
         sendBroadcast(myIntent);
     }
 }
