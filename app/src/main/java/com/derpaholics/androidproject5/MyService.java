@@ -11,13 +11,15 @@ import android.widget.Toast;
 public class MyService extends Service {
     private static final String TAG = "Test";
     private static final int MYNOTIFICATION = 1;
+    private static int counts = 0;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        counts++;
         Notification noti = new Notification.Builder(this)
                 .setContentTitle(getString(R.string.app_name))
-                .setContentText("Just a Notice")
+                .setContentText("Have recieved " + counts + " notifications")
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setOngoing(false)
                 .build();

@@ -48,8 +48,6 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             Intent myIntent = new Intent(this, SettingsActivity.class);
             startActivity(myIntent);
-
-
             return true;
         }
 
@@ -72,7 +70,8 @@ public class MainActivity extends ActionBarActivity {
         notificationManager.notify(MYNOTIFICATION, noti);
     }
 
-    public void sendBroadcast(View v)
+    //will i changed this because I think this is not supposed to be recursive... was sendBroadcast(...)
+    public void doBroadcast(View v)
     {
         Intent myIntent = new Intent("com.derpaholics.androidproject5.NOTIFICATION");
         sendBroadcast(myIntent);
