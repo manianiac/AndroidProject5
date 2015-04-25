@@ -17,17 +17,20 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        counts++;
-        Notification noti = new Notification.Builder(this)
-                .setContentTitle(MainActivity.myPreference.getString("defaultText", "Project 5"))
-                .setContentText("Have recieved " + counts + " notifications")
-                .setSmallIcon(R.drawable.ic_launcher)
-                .setOngoing(false)
-                .build();
-        noti.flags |= Notification.FLAG_INSISTENT;
-        notificationManager.notify(MYNOTIFICATION, noti);
-        stopSelf();
+        //make this work better
+       if(MainActivity.myPreference.getBoolean("EnableBroadcast", true)) {
+           NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+           counts++;
+           Notification noti = new Notification.Builder(this)
+                   .setContentTitle(MainActivity.myPreference.getString("defaultText", "Project 5"))
+                   .setContentText("Have recieved " + counts + " notifications")
+                   .setSmallIcon(R.drawable.ic_launcher)
+                   .setOngoing(false)
+                   .build();
+           noti.flags |= Notification.FLAG_INSISTENT;
+           notificationManager.notify(MYNOTIFICATION, noti);
+           stopSelf();
+       }
         return 0;
     }
 

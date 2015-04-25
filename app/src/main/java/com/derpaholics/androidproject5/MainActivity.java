@@ -89,6 +89,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void resetCount(View v) {
         MyService.counts = 0;
+        //this needs work
         myPreference.edit().putString("broadcastCounter", Integer.toString(MyService.counts));
     }
 }
