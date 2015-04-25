@@ -11,7 +11,7 @@
             />
         <Preference
             android:title="Total custom broadcasts received"
-            android:summary="0"
+            android:summary="15"
             android:editable="false"
             android:clickable="false"
             android:focusable="false"

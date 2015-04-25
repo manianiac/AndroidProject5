@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.preference.EditTextPreference;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -20,13 +22,15 @@ public class MainActivity extends ActionBarActivity {
 
     private static final int MYNOTIFICATION = 1;
     private int currentNotification = MYNOTIFICATION;
-    SharedPreferences myPreference;
+    public static SharedPreferences myPreference;
+    String string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myPreference = PreferenceManager.getDefaultSharedPreferences(this);
+
     }
 
 
@@ -55,25 +59,36 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    public void doNotification(View v) {
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-        Notification noti = new Notification.Builder(this)
-                .setContentTitle(getString(R.string.app_name))
-                .setContentText("Just a Notice")
-                .setSmallIcon(R.drawable.ic_launcher)
-                .setOngoing(false)
-                .build();
-
-        noti.flags |= Notification.FLAG_INSISTENT;
-
-        notificationManager.notify(MYNOTIFICATION, noti);
-    }
+//    public void doNotification(View v) {
+//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//
+//        Notification noti = new Notification.Builder(this)
+//                .setContentTitle(getString(R.string.app_name))
+//                .setContentText("Just a Notice")
+//                .setSmallIcon(R.drawable.ic_launcher)
+//                .setOngoing(false)
+//                .build();
+//
+//        noti.flags |= Notification.FLAG_INSISTENT;
+//
+//        notificationManager.notify(MYNOTIFICATION, noti);
+//    }
 
     //will i changed this because I think this is not supposed to be recursive... was sendBroadcast(...)
-    public void doBroadcast(View v)
-    {
-        Intent myIntent = new Intent("com.derpaholics.androidproject5.NOTIFICATION");
-        sendBroadcast(myIntent);
+    public void doBroadcast(View v) {
+        if (myPreference.getBoolean("EnableBroadcast", true)) {
+
+            Intent myIntent = new Intent("com.derpaholics.androidproject5.NOTIFICATION");
+            sendBroadcast(myIntent);
+
+        }
+        else {
+            Toast.makeText(this, "Broadcast are not enabled, see settings", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void resetCount(View v) {
+        MyService.counts = 0;
+        myPreference.edit().putString("broadcastCounter", Integer.toString(MyService.counts));
     }
 }
