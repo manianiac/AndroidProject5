@@ -9,7 +9,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 
 public class SettingsActivity extends PreferenceActivity {
-
+    public static Preference key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,13 @@ public class SettingsActivity extends PreferenceActivity {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences);
         }
+
+//        @Override
+//        public Preference findPreference(CharSequence seq){
+//            return super.findPreference(seq);
+//
+//
+//        }
     }
 }
 

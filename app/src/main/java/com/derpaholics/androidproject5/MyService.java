@@ -18,9 +18,7 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         //make this work better
-       if(MainActivity.myPreference.getBoolean("EnableBroadcast", true)) {
            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-           counts++;
            Notification noti = new Notification.Builder(this)
                    .setContentTitle(MainActivity.myPreference.getString("defaultText", "Project 5"))
                    .setContentText("Have recieved " + counts + " notifications")
@@ -30,7 +28,7 @@ public class MyService extends Service {
            noti.flags |= Notification.FLAG_INSISTENT;
            notificationManager.notify(MYNOTIFICATION, noti);
            stopSelf();
-       }
+
         return 0;
     }
 
