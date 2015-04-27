@@ -28,10 +28,14 @@
             android:enabled="true"
             android:exported="true" >
             <intent-filter>
-                <action android:name="com.derpaholics.androidproject5.NOTIFICATION"/>
+                <action android:name="com.derpaholics.androidproject5.NOTIFICATION" />
             </intent-filter>
         </receiver>
 
+        <!--<activity-->
+            <!--android:name=".SettingsActivity"-->
+            <!--android:label="@string/title_activity_settings" >-->
+        <!--</activity>-->
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" >

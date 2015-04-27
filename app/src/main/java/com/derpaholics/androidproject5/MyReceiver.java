@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MyReceiver extends BroadcastReceiver {
-    SettingsActivity s = new SettingsActivity();
+//    SettingsActivity s = new SettingsActivity();
 
     private NotificationManager nm;
     public void doNotification(View v) {
