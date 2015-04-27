@@ -17,7 +17,6 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        //make this work better
            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
            Notification noti = new Notification.Builder(this)
                    .setContentTitle(MainActivity.myPreference.getString("defaultText", "Project 5"))

@@ -58,23 +58,6 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-//    public void doNotification(View v) {
-//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//
-//        Notification noti = new Notification.Builder(this)
-//                .setContentTitle(getString(R.string.app_name))
-//                .setContentText("Just a Notice")
-//                .setSmallIcon(R.drawable.ic_launcher)
-//                .setOngoing(false)
-//                .build();
-//
-//        noti.flags |= Notification.FLAG_INSISTENT;
-//
-//        notificationManager.notify(MYNOTIFICATION, noti);
-//    }
-
-    //will i changed this because I think this is not supposed to be recursive... was sendBroadcast(...)
     public void doBroadcast(View v) {
         if (myPreference.getBoolean("EnableBroadcast", true)) {
 
