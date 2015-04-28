@@ -9,9 +9,8 @@
             android:onClick="enableBroadcastClicked"
             android:key="EnableBroadcast"
             />
-        <Preference
+        <EditTextPreference
             android:title="Total custom broadcasts received"
-            android:summary="0"
             android:editable="false"
             android:clickable="false"
             android:focusable="false"

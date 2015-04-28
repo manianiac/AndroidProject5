@@ -58,9 +58,8 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void doBroadcast(View v) {
+     public void doBroadcast(View v) {
         if (myPreference.getBoolean("EnableBroadcast", true)) {
-
             Intent myIntent = new Intent("com.derpaholics.androidproject5.NOTIFICATION");
             sendBroadcast(myIntent);
 
